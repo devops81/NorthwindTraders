@@ -14,7 +14,7 @@ pipeline {
         doGenerateSubmoduleConfigurations: false, 
         extensions: [], 
         submoduleCfg: [], 
-        userRemoteConfigs: [[url: 'https://github.com/jasontaylordev/NorthwindTraders.git']]])
+        userRemoteConfigs: [[url: 'https://github.com/devops81/NorthwindTraders.git']]])
 
       }
     }
@@ -51,18 +51,3 @@ pipeline {
     }
 	}
 	}
-
-    stage('Deploy') {
-      steps {
-        bat label: 'MsDeploy',
-        script: ''' 
-          // For Localhost
-          "C:\\Program Files (x86)\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -source:package="PrimeDotnet\\bin\\Debug\\Package\\PrimeDotnet.zip" -dest:auto,computerName=localhost
-
-          // For Remote Server
-           "C:\\Program Files (x86)\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -source:package="PrimeDotnet\\obj\\Debug\\Package\\PrimeDotnet.zip" -dest:auto,computerName="<IP or Hostname>",userName=administrator,password="supersecret",authType=NTLM -allowUntrusted=true
-        '''
-      }
-    }
-  }
-}
