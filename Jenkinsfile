@@ -1,5 +1,5 @@
 pipeline {
- agent any
+  agent any
   stages {
     stage('Clean Workspace'){
       steps {
@@ -32,8 +32,7 @@ pipeline {
     stage('Build') {
       steps {
         script {
-          //def msbuild = tool name: 'msbuild_2017', type: 'hudson.plugins.msbuild.MsBuildInstallation'
-          tool name: 'msbuild_2017', type: 'msbuild'
+      
           bat "dotnet build"
         }
       }
