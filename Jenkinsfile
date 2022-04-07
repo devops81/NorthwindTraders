@@ -49,13 +49,5 @@ pipeline {
       }
     }
 	}
-	post {
-                always {
-                    /*xunit (
-                        thresholds: [$class: 'FailedThreshold', unstableThreshold: '1'],
-                        tools: [$class: 'MSTest', pattern: '*.trx']
-                    )*/
-					echo "i am always"
-                }
-            }
+	
 	}
