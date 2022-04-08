@@ -43,7 +43,7 @@ pipeline {
         script {
           bat label: 'Unit Test using Dotnet CLI',
         script: '''
-          dotnet test
+          dotnet test --logger trx
         '''
         }
       }
