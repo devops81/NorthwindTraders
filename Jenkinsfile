@@ -51,12 +51,13 @@ pipeline {
 	}
 	post {
                 always {
-                    xunit (
-                     testTimeMargin: '3000',
-                    thresholdMode: 1,
-                    thresholds: [$class: 'FailedThreshold', unstableThreshold: '1'],
-                    mstest testResultsFile:"**/*.trx", keepLongStdio: true
-                    )
+                   xunit(
+    [MSTest(deleteOutputFiles: true,
+            failIfNotNew: true,
+            pattern: '*.trx',
+            skipNoTestFiles: false,
+            stopProcessingIfError: true)
+    ])
                 }
             }
 	
