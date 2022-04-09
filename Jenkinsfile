@@ -54,7 +54,7 @@ pipeline {
                    xunit(
     [MSTest(deleteOutputFiles: true,
             failIfNotNew: true,
-            pattern: '**\\*.trx',
+            pattern: '..\\*.trx',
             skipNoTestFiles: false,
             stopProcessingIfError: true)
     ])
