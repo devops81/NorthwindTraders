@@ -55,7 +55,7 @@ pipeline {
                      testTimeMargin: '3000',
                     thresholdMode: 1,
                     thresholds: [$class: 'FailedThreshold', unstableThreshold: '1'],
-                    tools: [$class: 'MSTest', pattern: '*.trx']
+                    mstest testResultsFile:"**/*.trx", keepLongStdio: true
                     )
                 }
             }
